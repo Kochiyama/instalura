@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Fragment } from "react";
-import { StyleSheet, Image, Dimensions, FlatList } from "react-native";
+import { FlatList } from "react-native";
 
-import PostHeader from "./src/components/Header/index.js";
+import Post from "./src/components/Post/index";
 
 const posts = [
   {
@@ -91,35 +91,17 @@ const posts = [
   },
 ];
 
-const deviceWidth = Dimensions.get("screen").width;
-
-const Post = ({ user, imageUrl }) => (
-  <Fragment>
-    <PostHeader user={user} />
-    <Image style={styles.image} source={imageUrl} />
-  </Fragment>
-);
-
 export default function App() {
-  const renderItem = ({ item }) => (
-    <Post user={item.user} imageUrl={item.imageUrl} />
-  );
+  const post = ({ item }) => <Post user={item.user} imageUrl={item.imageUrl} />;
 
   return (
     <Fragment>
       <FlatList
         data={posts}
-        renderItem={renderItem}
+        renderItem={post}
         keyExtractor={(item) => item.id.toString()}
       />
       <StatusBar style="auto" />
     </Fragment>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    width: deviceWidth,
-    height: deviceWidth,
-  },
-});
