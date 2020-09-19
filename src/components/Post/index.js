@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import { Image } from "react-native";
-import PostHeader from "../Header/index.js";
+import PostHeader from "../Header/index";
+import PostImage from "../PostImage/index";
 
-import styles from "./styles";
+// import styles from "./styles";
 
-const Post = ({ user, imageUrl }) => (
+const Post = ({ user, imageUrl, description }) => (
   <Fragment>
     <PostHeader user={user} />
-    <Image style={styles.image} source={imageUrl} />
+    <PostImage imageUrl={imageUrl} description={description} />
   </Fragment>
 );
 

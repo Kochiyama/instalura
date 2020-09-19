@@ -1,11 +1,5 @@
-import { StyleSheet, Dimensions } from "react-native";
-const deviceWidth = Dimensions.get("screen").width;
+import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
-  image: {
-    width: deviceWidth,
-    height: deviceWidth,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default styles;
