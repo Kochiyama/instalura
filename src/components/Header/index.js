@@ -1,5 +1,7 @@
 import React from "react";
-import { Text, Image, StyleSheet, View } from "react-native";
+import { Text, Image, View } from "react-native";
+
+import styles from "./styles";
 
 const PostHeader = ({ user }) => {
   return (
@@ -9,22 +11,5 @@ const PostHeader = ({ user }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  postHeader: {
-    padding: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  image: {
-    width: 40,
-    height: 40,
-    borderRadius: 50,
-  },
-  username: {
-    marginLeft: 10,
-    fontSize: 16,
-  },
-});
 
 export default PostHeader;
