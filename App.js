@@ -26,13 +26,13 @@ export default function App() {
 
   return (
     <Fragment>
+      <StatusBar style="auto" />
       <Header />
       <FlatList
         data={posts}
         renderItem={post}
         keyExtractor={(item) => item.id.toString()}
       />
-      <StatusBar style="auto" />
     </Fragment>
   );
 }
