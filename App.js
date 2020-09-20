@@ -4,6 +4,7 @@ import { FlatList } from "react-native";
 
 import getPostsFromApi from "./src/api/feed";
 
+import Header from "./src/components/Header/index";
 import Post from "./src/components/Post/index";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <Fragment>
+      <Header />
       <FlatList
         data={posts}
         renderItem={post}
