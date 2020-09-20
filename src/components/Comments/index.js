@@ -1,6 +1,15 @@
 import React, { Fragment } from "react";
-import { FlatList, Text } from "react-native";
+import {
+  FlatList,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Comment from "../Comment/index";
+
+import sendIcon from "../../../res/send.png";
+import styles from "./styles";
 
 const Comments = ({ comments }) => {
   const comment = ({ item }) => {
@@ -16,6 +25,15 @@ const Comments = ({ comments }) => {
         renderItem={comment}
         keyExtractor={(item, index) => index.toString()}
       />
+      <View style={styles.createComment}>
+        <TextInput
+          style={styles.commentInput}
+          placeholder="Deixe seu comentario"
+        />
+        <TouchableOpacity style={styles.sendCommentButton}>
+          <Image style={styles.sendCommentImage} source={sendIcon} />
+        </TouchableOpacity>
+      </View>
     </Fragment>
   );
 };
