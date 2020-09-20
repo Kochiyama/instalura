@@ -3,11 +3,11 @@ import { Text, Image, View } from "react-native";
 
 import styles from "./styles";
 
-const PostHeader = ({ user }) => {
+const PostHeader = ({ userName, userUrl }) => {
   return (
     <View style={styles.postHeader}>
-      <Image style={styles.image} source={user.imageUrl} />
-      <Text style={styles.username}>{user.name}</Text>
+      <Image style={styles.image} source={{ uri: userUrl }} />
+      <Text style={styles.username}>{userName}</Text>
     </View>
   );
 };

@@ -3,10 +3,10 @@ import { Image, Text } from "react-native";
 
 import styles from "./styles";
 
-const PostImage = ({ imageUrl, description }) => {
+const PostImage = ({ url, description }) => {
   return (
     <Fragment>
-      <Image style={styles.image} source={imageUrl} />
+      <Image style={styles.image} source={{ uri: url }} />
       <Text style={styles.description}>{description}</Text>
     </Fragment>
   );
