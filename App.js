@@ -21,6 +21,7 @@ export default function App() {
       userUrl={item.userURL}
       url={item.url}
       description={item.description}
+      likes={item.likes}
     />
   );
 
