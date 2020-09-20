@@ -22,6 +22,7 @@ export default function App() {
       url={item.url}
       description={item.description}
       likes={item.likes}
+      comments={item.comentarios}
     />
   );
 
