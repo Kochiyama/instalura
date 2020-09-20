@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import {
   FlatList,
   Image,
@@ -12,6 +12,23 @@ import sendIcon from "../../../res/send.png";
 import styles from "./styles";
 
 const Comments = ({ comments }) => {
+  const [commentsState, setCommentsState] = useState(comments);
+  const [commentField, setCommentField] = useState("");
+
+  const addComment = () => {
+    const actualDateAndTime = new Date();
+
+    const newComment = {
+      date: actualDateAndTime.toLocaleString(),
+      text: commentField,
+      userName: "Marcelo Kochiyama",
+    };
+
+    setCommentsState([...commentsState, newComment]);
+
+    setCommentField("");
+  };
+
   const comment = ({ item }) => {
     return (
       <Comment userName={item.userName} date={item.date} text={item.text} />
@@ -21,7 +38,7 @@ const Comments = ({ comments }) => {
   return (
     <Fragment>
       <FlatList
-        data={comments}
+        data={commentsState}
         renderItem={comment}
         keyExtractor={(item, index) => index.toString()}
       />
@@ -29,8 +46,10 @@ const Comments = ({ comments }) => {
         <TextInput
           style={styles.commentInput}
           placeholder="Deixe seu comentario"
+          onChangeText={(text) => setCommentField(text)}
+          value={commentField}
         />
-        <TouchableOpacity style={styles.sendCommentButton}>
+        <TouchableOpacity style={styles.sendCommentButton} onPress={addComment}>
           <Image style={styles.sendCommentImage} source={sendIcon} />
         </TouchableOpacity>
       </View>
