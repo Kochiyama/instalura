@@ -1,13 +1,16 @@
-import React, { Fragment } from "react";
-import { Text } from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
+import styles from "./styles";
 
 const Comment = ({ userName, text, date }) => {
   return (
-    <Fragment>
-      <Text>{date}</Text>
-      <Text>{userName}</Text>
-      <Text>{text}</Text>
-    </Fragment>
+    <View style={styles.comment}>
+      <View style={styles.userAndDate}>
+        <Text style={styles.username}>{userName}</Text>
+        <Text style={styles.date}>{date}</Text>
+      </View>
+      <Text style={styles.text}>{text}</Text>
+    </View>
   );
 };
 
